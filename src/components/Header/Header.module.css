@@ -1,0 +1,46 @@
+
+.header {
+    /* background-image: linear-gradient(#67b1e7, #194cb1); */
+    background-color: #3a6cd1;
+    width: 100%; 
+    height: 5rem;
+    display: inline-block;
+    position: relative
+    
+}
+
+.header h1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: #FFF;
+}
+
+.add-schedule {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.menu-bar {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(20%, -50%);
+    
+}
+
+.menu-bar li {
+    list-style-type: none;
+    float: left;
+}
+
+.menu-bar__btn {
+
+}

@@ -1,0 +1,52 @@
+
+.calendar {
+    border: 1px solid #000;
+    margin-top: 8rem;
+    margin-left: 3.5rem;
+    width: 90%;
+    text-align: center;
+}
+
+.calendar__month {
+    column-span: all;
+    text-align: center;
+}
+
+th {
+    width: 3rem;
+    height: 2rem;
+}
+
+td {
+    border: 1px solid #000;
+    height: 8rem;
+    position: relative
+}
+
+.calendar__data {
+    position: sticky;
+    padding: .5rem 0 .3rem 1rem;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.calendar__no-data {
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.calendar__schedule-box {
+    overflow: auto;
+    width: 90%;
+    height: 8rem;
+    margin: 0 auto;
+}
+
+td p {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+}
