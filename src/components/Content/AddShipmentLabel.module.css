@@ -1,0 +1,10 @@
+.form-container__label {
+  width: 35%;
+  position: absolute;
+  left: 15%;
+}
+
+label {
+  font-size: 1.5rem;
+  line-height: 5rem;
+}

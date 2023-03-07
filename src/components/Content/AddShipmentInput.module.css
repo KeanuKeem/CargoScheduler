@@ -1,0 +1,17 @@
+.input__span {
+    line-height: 5rem;
+    display: block;
+    width: 100%;
+}
+
+.form-container__select {
+    line-height: 3rem;
+}
+
+.form-container__select-container {
+    margin-left: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+}

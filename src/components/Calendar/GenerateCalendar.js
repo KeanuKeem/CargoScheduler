@@ -15,13 +15,13 @@ const GenerateCalendar = (props) => {
       </thead>
       <tbody>
         <tr>
-          <th>SUN</th>
+          <th className={classes["calendar__sun"]}>SUN</th>
           <th>MON</th>
           <th>TUE</th>
           <th>WED</th>
           <th>THU</th>
           <th>FRI</th>
-          <th>SAT</th>
+          <th className={classes["calendar__sat"]}>SAT</th>
         </tr>
       </tbody>
         <CalendarCalculator month={props.month} year={props.year} />

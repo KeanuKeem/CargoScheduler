@@ -5,7 +5,7 @@ import CalendarLine from "./CalendarLine";
 const CalendarCalculator = (props) => {
   const months = [
     "January",
-    "Feburuary",
+    "February",
     "March",
     "April",
     "May",
@@ -83,23 +83,23 @@ const CalendarCalculator = (props) => {
     }
   };
 
-//   //---Return End Day of the Month :: 0 -> Sunday ---//
-//   const endDayOfMonth = (thisMonth, startDay, thisYear) => {
-//     const findIndex = indexFinder(thisMonth);
-//     let start = startDay;
-//     let endDay;
+  //   //---Return End Day of the Month :: 0 -> Sunday ---//
+  //   const endDayOfMonth = (thisMonth, startDay, thisYear) => {
+  //     const findIndex = indexFinder(thisMonth);
+  //     let start = startDay;
+  //     let endDay;
 
-//     if (isLeapYear(thisYear)) {
-//       for (var i = 0; i < datesInMonthLeap[findIndex] - 1; i++) {
-//         endDay = addDay(start);
-//       }
-//     } else {
-//       for (var j = 0; j < datesInMonth[findIndex] - 1; j++) {
-//         endDay = addDay(start);
-//       }
-//     }
-//     return endDay;
-//   };
+  //     if (isLeapYear(thisYear)) {
+  //       for (var i = 0; i < datesInMonthLeap[findIndex] - 1; i++) {
+  //         endDay = addDay(start);
+  //       }
+  //     } else {
+  //       for (var j = 0; j < datesInMonth[findIndex] - 1; j++) {
+  //         endDay = addDay(start);
+  //       }
+  //     }
+  //     return endDay;
+  //   };
 
   //---Return Start Day of the Year :: 0 -> Sunday ---//
   const startDayYear = (thisStartYear) => {
@@ -174,10 +174,9 @@ const CalendarCalculator = (props) => {
     let counter = 0;
     let additional = 42 - calendar.length;
 
-    
     while (additional > 0) {
-        calendar.push("");
-        additional--;
+      calendar.push("");
+      additional--;
     }
 
     for (var calIndex = 0; calIndex < 42; calIndex++) {
@@ -196,55 +195,100 @@ const CalendarCalculator = (props) => {
     return finalCalendar;
   };
 
+  const createKeys = (dateArray) => {
+    let keyArray = [];
+    let keepArray = [];
+    let keyToStore;
 
+    for (var i = 0; i < dateArray.length; i++) {
+      for (var j = 0; j < 7; j++) {
+        keyToStore =
+          props.year.toString() + props.month + dateArray[i][j].toString(); //2023March1
+        if (dateArray[i][j] === "") {
+          keepArray.push("no" + i.toString() + j.toString()); // no00
+        } else {
+          keepArray.push(keyToStore);
+        }
+      }
+      keyArray.push(keepArray);
+      keepArray = [];
+    }
+    return keyArray;
+  };
 
   const cal = calendarArray(props.month, props.year);
+  const keys = createKeys(cal);
 
   return (
     <React.Fragment>
       <tbody>
         <tr>
-          {cal[0].map((date) => (
-            <CalendarLine date={date} key="month-1" />
+          {cal[0].map((date, index) => (
+            <CalendarLine
+              date={date}
+              key={keys[0][index]}
+              id={keys[0][index]}
+            />
           ))}
         </tr>
       </tbody>
       <tbody>
         <tr>
-          {cal[1].map((date) => (
-            <CalendarLine date={date} key="month-2" />
+          {cal[1].map((date, index) => (
+            <CalendarLine
+              date={date}
+              key={keys[1][index]}
+              id={keys[1][index]}
+            />
           ))}
         </tr>
       </tbody>
       <tbody>
         <tr>
-          {cal[2].map((date) => (
-            <CalendarLine date={date} key="month-3" />
+          {cal[2].map((date, index) => (
+            <CalendarLine
+              date={date}
+              key={keys[2][index]}
+              id={keys[2][index]}
+            />
           ))}
         </tr>
       </tbody>
       <tbody>
         <tr>
-          {cal[3].map((date) => (
-            <CalendarLine date={date} key="month-4" />
+          {cal[3].map((date, index) => (
+            <CalendarLine
+              date={date}
+              key={keys[3][index]}
+              id={keys[3][index]}
+            />
           ))}
         </tr>
       </tbody>
       <tbody>
         <tr>
-          {cal[4].map((date) => (
-            <CalendarLine date={date} key="month-5" />
+          {cal[4].map((date, index) => (
+            <CalendarLine
+              date={date}
+              key={keys[4][index]}
+              id={keys[4][index]}
+            />
           ))}
         </tr>
       </tbody>
-      {cal[5][0] !== "" && 
-      <tbody>
-        <tr>
-          {cal[5].map((date) => (
-            <CalendarLine date={date} key="month-6" />
-          ))}
-        </tr>
-      </tbody>}
+      {cal[5][0] !== "" && (
+        <tbody>
+          <tr>
+            {cal[5].map((date, index) => (
+              <CalendarLine
+              date={date}
+              key={keys[5][index]}
+              id={keys[5][index]}
+            />
+            ))}
+          </tr>
+        </tbody>
+      )}
     </React.Fragment>
   );
 };

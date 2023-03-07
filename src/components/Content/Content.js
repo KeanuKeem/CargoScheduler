@@ -7,7 +7,7 @@ import CalendarControls from "../Calendar/CalendarControls";
 
 import classes from "./Content.module.css";
 
-const Content = () => {
+const Content = (props) => {
   const monthArray = [
     "January",
     "February",
@@ -49,6 +49,7 @@ const Content = () => {
           onChangeYear={yearHandler}
           monthArray={monthArray}
           yearArray={yearArray}
+          onClick={props.onClick}
         />
       </div>
       <Calendar month={month} year={year} />
